@@ -1,0 +1,83 @@
+*{
+	box-sizing: border-box;
+
+}
+.bg{
+	background-image: url(../img/lyft-bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+	position: relative;
+	padding-top: 20px;
+}
+
+.logo{
+	width: 30%;
+}
+
+
+.btns{
+	width: 100%;
+	position: absolute;
+	bottom: 15px;
+}
+
+.btn1{
+	border:1px solid #fff;
+	color:#fff;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
+.btn2{
+	background: linear-gradient(to right, #9f18e2 9%,#d61555 59%);
+	color:#fff;
+	
+	border-radius: 5px;
+}
+
+
+.next{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	
+}
+
+.nextt{
+	background-color: #FF00BE;
+	display: inline-block;
+	width: 100%;
+	padding:20px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+span{
+	color: #000;
+	font-size: 20px;
+}
+
+.tlf{
+	border-left: transparent;
+}
+
+.areaCode{
+	border-right: transparent;
+}
+
+.linea {
+  border: none;
+  background-color: white;
+  border-bottom: 2px solid #000 ;
+  width: 5%;
+}
+
+input:focus{
+   outline: none;
+}
+.resend{
+	margin-top: 50px;
+}
