@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
 	var codigoValido = localStorage.getItem("validCode");// declaro globalmente la variable validCode
-
-	$("#numero, .linea").keydown(function(evento) {
-		var ascii = evento.keyCode;
+	
+	$("#numero, .linea")focus().keydown(function(evento) {
+	var ascii = evento.keyCode;
 		if (ascii == 8 || (ascii >= 48 && ascii <= 57)) {
 			return true;
 		} else {
@@ -16,7 +16,7 @@ $(document).ready(function() {
 		if (longitud == 9) {
 			$("#next1").attr("href", "sign-up2.html");
 		} else {
-			$("#next1").removeAttr("href");
+			$("#next1").removeAttr("href"); 
 		}
 	});
 
