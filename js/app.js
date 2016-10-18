@@ -1,15 +1,17 @@
 $(document).ready(function() {
 
 	var codigoValido = localStorage.getItem("validCode");// declaro globalmente la variable validCode
-	
-	$("#numero, .linea")focus().keydown(function(evento) {
+	$("#numero").focus();
+	$("#linea1").focus();
+
+	$("#numero, .linea").keydown(function(evento) {
 	var ascii = evento.keyCode;
 		if (ascii == 8 || (ascii >= 48 && ascii <= 57)) {
 			return true;
 		} else {
 			return false;
 		}
-	});
+	})
 
 	$("#numero").keyup(function(evento) {
 		var longitud = $(this).val().length;
@@ -18,7 +20,7 @@ $(document).ready(function() {
 		} else {
 			$("#next1").removeAttr("href"); 
 		}
-	});
+	})
 
 	$("#next1").click(function(evento){
 		var phono = $("#numero").val().length;
@@ -27,8 +29,9 @@ $(document).ready(function() {
 			$("#next1").attr("href", "sign-up2.html");
 			alert("LAB-" + code);
 			localStorage.setItem("validCode", code);//guardando el codigo generadode code en la var validCode
+		var linea1 = $("linea")
 		}
-	});
+	})
 
   	 $(".linea").keydown(function(){
   	 	var ascii = evento.keyCode;
@@ -48,7 +51,7 @@ $(document).ready(function() {
        	$(this).prev().focus();
        }
 
-   });
+     })
 
   	 $("#next2").click(function(){
   	 	var code = $(".linea").eq(0).val() + $(".linea").eq(1).val() + $(".linea").eq(2).val();
@@ -63,6 +66,24 @@ $(document).ready(function() {
   	 	}
   	 })
 
+  	 $("#nombre, #apellido").keydown(function(evento){
+  	 	var ascii = evento.keyCode;
+  	 	if (ascii == 8 || ascii == 32 || (ascii >= 65 && ascii <= 90 )|| (ascii >= 97 && ascii <= 122 )) {
+  	 		return true;
+  	 	}else {
+  	 		return false;
+  	 	}
+  	 })
 
-       
+  	 $("#next3").click(function(evento){
+        var email = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        if (email.test($("#email")).val().trim()) {
+        	$(this).attr("href", "map-contact.html");
+        } else{
+        	$("#next3 ").removeAttr("href");
+        }
+   })
+
+
+        
 });
