@@ -5,6 +5,8 @@ $(document).ready(function() {
 	var codigoValido = localStorage.getItem("validCode");// declaro globalmente la variable validCode
 	var guardoCell = localStorage.getItem("guardarCell");	
 	var guardoDni = localStorage.getItem("guardarDni");
+	var fecha = localStorage.getItem("dateJoin");
+
 	
 	$("#numero").focus();
 	$("#numero").keydown(soloNumero);
@@ -20,14 +22,16 @@ $(document).ready(function() {
 	$("#dnii").text(guardoDni);
 	$("#apareceCell").text(guardoCell);
 	$("#next3").click(validarDatos);
+	$("#join").text(fecha);
 	$(".resend").click(resendCode);
 	$(".user").click(aparecePerfil);
 	$(".sideList").click(desaparecePerfil);
-
 	if (navigator.geolocation) { 
 		// también se puede usar if ("geolocation" in navigator) {}
 		navigator.geolocation.getCurrentPosition(funcionExito, funcionError);
 	}
+
+
 
 	function soloNumero(evento) {
 	var ascii = evento.keyCode;
@@ -94,6 +98,7 @@ $(document).ready(function() {
         if (email.test(maIl) && (dni >= 2 && dni <= 20) && (mail >= 5 && mail <= 50)) {
         	$(this).attr("href", "map-contact.html");
         	localStorage.setItem("guardarDni", $(".dni").val());
+        	  dateJoin();
         } else{
         	$("#next3 ").removeAttr("href");
         	alert("Please, fill the form")
@@ -125,35 +130,75 @@ $(document).ready(function() {
   	 	$(this).hide();
   	 }
 
-  	
+  	function dateJoin() {
+	    var meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "December"];
+	    var f = new Date();
+	    var d = f.getMonth();
+	    var a = f.getFullYear();
+	    var fecha = meses[d] + " " + a;
+	    localStorage.setItem("dateJoin", fecha);
+	}
+
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image_upload_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputFile").change(function () {
+        readURL(this);
+    });
+
 });
 
-	function funcionExito(posicion) {
-	var lat = posicion.coords.latitude;
-    var lon = posicion.coords.longitude;
-    var latlon = new google.maps.LatLng(lat, lon)
-    var mapa = document.getElementById('mapa');
-    $("#mapa").addClass("todoMapa");
-    var myOptions = {
-	    center:latlon,zoom:14,
-	    mapTypeId:google.maps.MapTypeId.ROADMAP,
-	    mapTypeControl:false,
-	    zoomControl:false,
-	    streetViewControl:false
-    };
-    
-    var map = new google.maps.Map(document.getElementById('mapa'), myOptions);
 
-    var marker = new google.maps.Marker({
-    	position:latlon,
-    	map:map,
-    	title:"You are here!"
-    });
-};
+	function funcionExito(posicion) {
+    	var lat = posicion.coords.latitude;
+    	var lon = posicion.coords.longitude;
+    	var latlon = new google.maps.LatLng(lat, lon);
+    	var mapa = document.getElementById("mapa");
+
+    	var myOptions = {
+        	center : latlon, zoom:14,
+        	mapTypeId : google.maps.MapTypeId.ROADMAP,
+        	mapTypeControl : false,
+        	zoomControl : false,
+        	streetViewControl : false
+   		};
+   
+   		var map = new google.maps.Map(document.getElementById("mapa"), myOptions);
+
+   		var marker = new google.maps.Marker({
+       		position : latlon,
+       		map : map,
+       		title : "You are here!"
+   		});
+
+   		var direccion = "";
+
+   		var geocoder = new google.maps.Geocoder();
+   		geocoder.geocode({"latLng": latlon}, function(results, status) {
+       	if (status == google.maps.GeocoderStatus.OK) {
+           	if (results[0]) {
+               direccion =  results[0].formatted_address ;
+           	} else {
+               direccion = "No se puede mostrar la dirección";
+           	}
+       	}
+
+   			$("#direccion").val(direccion);
+   		});
+	}
 
     function funcionError(error) {
-	console.log(error);
-};
+		console.log(error);
+	}
 
 
 

@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="shortcut icon" href="img/lyft_logo.ico">
+	<meta charset="utf-8">
 	<title>Profile</title>
 </head>
 <body>
-
+	<div class="section">
+		<div class="container-fluid">
+			<form id="form1" runat="server">
+				<img id="image_upload_preview" class="proPic" src="img/breakingbad.jpg">
+    			<input type='file' id="inputFile" class="select"/>
+			</form>
+			<h1 id="dnii" class="text-center"></h1>
+			<div class="text-center">
+				<span class="join">Member since
+					<span id="join"></span>
+				</span>
+			</div>
+			<ul class="lista lista1">
+				<li>
+					<span class="glyphicon glyphicon-home  pinkIcon"> From the best city ever</span>
+				</li>
+				<hr>
+				<li>
+					<span class="glyphicon glyphicon-music pinkIcon"> Favorite music is whatever matches <br> my mood</span>
+				</li>
+				<hr>
+				<li>
+					<span class="glyphicon glyphicon-user pinkIcon"> Im going places</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

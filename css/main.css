@@ -39,27 +39,12 @@
 	border-radius: 5px;
 }
 
-/*seign up 1*/
+/*sign up 1*/
 
 .m-10{
 	margin-top: 10px;
 }
 
-.next{
-	position: absolute;
-	bottom: 0;
-	width: 100%;	
-}
-
-.nextt{
-	background-color: #FF00BE;
-	display: inline-block;
-	width: 100%;
-	padding:20px;
-	color: #fff;
-	text-decoration: none;
-	font-size: 20px;
-}
 
 .h-34{
 	height: 34px;
@@ -68,11 +53,6 @@
 .m-1{
 	margin-top: 1px;
 	height: 35px;
-}
-
-.atraz{
-	color: #000; 
-	font-size: 20px;
 }
 
 .tlf{
@@ -85,6 +65,10 @@
 
 /*sign up 2*/
 
+input:focus{
+   outline: none;
+}
+
 .linea {
   border: none;
   background-color: white;
@@ -92,9 +76,6 @@
   width: 5%;
 }
 
-input:focus{
-   outline: none;
-}
 .resend{
 	margin-top: 50px;
 }
@@ -119,6 +100,8 @@ input:focus{
 .nameMail{
 	background-color: transparent;
 }
+
+/*map contact*//  
 
 .setPu{
 	background-color: #FF00BE;
@@ -156,10 +139,11 @@ input:focus{
 	opacity: 0.5;
 }
 
+
 .gift{
 	left: 90%;
 	margin-top:7%;
-	color:#FF00BE ;
+	color:#FF00BE;
 	font-size: 30px;
 }
 
@@ -169,6 +153,8 @@ input:focus{
 	color:#FF00BE;
 	font-size: 30px;
 }
+
+/*contact*/
 
 .lista{
 	list-style: none;
@@ -210,4 +196,57 @@ input:focus{
 	z-index: 3;
 	width: 60%;
 	background-color:#fff;
+}
+
+/*perfil*/
+
+.bg-proPic{
+	background-color: #C4CCDF;
+}
+
+.proPic{
+	width: 100vw;
+}
+
+.join{
+	width:auto;
+	background-color:#FF00BE;
+	padding: 10px;
+	border-radius:5px;
+	color: black;
+}
+
+.lista1{
+	margin-top: 20px;
+}
+
+.dnii{
+	height: 50px;
+}
+
+.select{
+	color: transparent;
+}
+
+/*reutilizables*/
+
+.atraz{
+	color: #000; 
+	font-size: 20px;
+}
+
+.next{
+	position: absolute;
+	bottom: 0;
+	width: 100%;	
+}
+
+.nextt{
+	background-color: #FF00BE;
+	display: inline-block;
+	width: 100%;
+	padding:20px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 20px;
 }
