@@ -1,27 +1,33 @@
+"use strict"
+
 $(document).ready(function() {
 
+	var codigoValido = localStorage.getItem("validCode");// declaro globalmente la variable validCode
+	var guardoCell = localStorage.getItem("guardarCell");	
+	var guardoDni = localStorage.getItem("guardarDni");
+	
 	$("#numero").focus();
-	$("#linea1").focus();
-	$("#nombre").focus();
 	$("#numero").keydown(soloNumero);
 	$("#numero").keyup(validandoTelefono);
 	$("#next1").click(numeroAleatorio);
+	$("#linea1").focus();
 	$(".linea").keydown(soloNumero);
 	$(".linea").keyup(focusing);
 	$("#next2").click(validarLineas);
-	$("#next3").click(validarDatos);
+	$("#nombre").focus();
 	$("#nombre").keydown(validarNombreAp);
 	$("#apellido").keydown(validarNombreAp);
+	$("#dnii").text(guardoDni);
 	$("#apareceCell").text(guardoCell);
-
-	var codigoValido = localStorage.getItem("validCode");// declaro globalmente la variable validCode
-	var guardoCell = localStorage.getItem("guardarCell");
+	$("#next3").click(validarDatos);
+	$(".resend").click(resendCode);
+	$(".user").click(aparecePerfil);
+	$(".sideList").click(desaparecePerfil);
 
 	if (navigator.geolocation) { 
 		// también se puede usar if ("geolocation" in navigator) {}
 		navigator.geolocation.getCurrentPosition(funcionExito, funcionError);
 	}
-
 
 	function soloNumero(evento) {
 	var ascii = evento.keyCode;
@@ -32,11 +38,12 @@ $(document).ready(function() {
 		}
 	}
 
-	function validandoTelefono(evento) {
+	function validandoTelefono() {
 		var longitud = $(this).val().length;
+		var num = $("#numero").val();
 		if (longitud == 9) {
 			$("#next1").attr("href", "sign-up2.html");
-			localStorage.setItem("guardarCell",$(this).val());
+			localStorage.setItem("guardarCell", num);
 		} else {
 			$("#next1").removeAttr("href"); 
 		}
@@ -50,27 +57,31 @@ $(document).ready(function() {
 			alert("LAB-" + code);
 			localStorage.setItem("validCode", code);//guardando el codigo generadode code en la var validCode
 		var linea1 = $("linea")
+		}else{
+			alert("Oh no! We need your phone number!!")
 		}
 	}
 
-	function focusing(){
-       if ($(this).val().length == 1) {
+	function focusing(evento){
+		var ascii = evento.keyCode;
+		$(this).attr("maxlength", 1);
+       if ($(this).val().length == $(this).attr("maxlength")) {
        	$(this).next().focus();
        }
-       if ($(this).val().length == 0) {
+       else if (ascii === 8) {
        	$(this).prev().focus();
        }
 	}
 
   	 function validarLineas(){
   	 	var code = $(".linea").eq(0).val() + $(".linea").eq(1).val() + $(".linea").eq(2).val();
-  	 	var linea1 = $(this).val().length == 1;
+  	 	var linea1 = $("#linea1").val().length;
   	 	if (codigoValido == code) {
   	 		$(this).attr("href", "sign-up3.html");
-  	 	} else if (linea1.length == 0){
-  	 		alert("Ingrese su código por favor.")
-  	 	} else if (codigoValido!== code){
-  	 		alert("Código inválido.");
+  	 	} else if (linea1 == 0){
+  	 		alert("Insert Valid Code")
+  	 	} else if (code != codigoValido){
+  	 		alert("Invalid code!");
 
   	 	}
   	 }
@@ -82,8 +93,10 @@ $(document).ready(function() {
         var maIl =$(".email").val().trim();
         if (email.test(maIl) && (dni >= 2 && dni <= 20) && (mail >= 5 && mail <= 50)) {
         	$(this).attr("href", "map-contact.html");
+        	localStorage.setItem("guardarDni", $(".dni").val());
         } else{
         	$("#next3 ").removeAttr("href");
+        	alert("Please, fill the form")
         }
 	}
 
@@ -94,6 +107,22 @@ $(document).ready(function() {
   	 	}else {
   	 		return false;
   	 	}
+  	 }
+
+  	function resendCode(){
+  		var code = Math.round(Math.random()*900) + 99;
+  		alert("LAB- "+ code);
+  		localStorage.setItem("codeResent", code);
+  		codigoValido = code;
+  	 }
+
+  	 function aparecePerfil(){
+  	 	$(".sideList").show();
+  	 	$(".sideList").addClass("todoOpaco");
+  	 }
+
+  	 function desaparecePerfil(){
+  	 	$(this).hide();
   	 }
 
   	

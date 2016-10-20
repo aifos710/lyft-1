@@ -70,8 +70,8 @@
 	height: 35px;
 }
 
-span{
-	color: #000;
+.atraz{
+	color: #000; 
 	font-size: 20px;
 }
 
@@ -131,8 +131,9 @@ input:focus{
 }
 
 .logo-map{
-	width: 5%;
-	left: 45%;
+	width: 15%;
+	left: 42%;
+	margin-top: 25px;
 }
 
 .todoMapa{
@@ -141,7 +142,7 @@ input:focus{
 }
 
 .z-index{
-	z-index: 100;
+	z-index: 1;
 	position: relative;
 }
 
@@ -173,12 +174,8 @@ input:focus{
 	list-style: none;
 }
 
-.sideList{
-	width: 60%;
-}
-
 .pic{
-	width: 40%;
+	width: 30%;
 	border-radius: 100%;
 }
 
@@ -188,4 +185,29 @@ input:focus{
 
 .none{
 	display: none;
+}
+
+.direccion{
+	margin-bottom: 10px;
+	height: 68px;
+}
+
+.sideList{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: white;
+	z-index: 2;
+	border-right: 1px solid pink;
+	height: 100vh;
+}
+
+.todoOpaco{
+	 background-color: rgba(0, 0, 7, 0.4);
+}
+
+.menu {
+	z-index: 3;
+	width: 60%;
+	background-color:#fff;
 }
