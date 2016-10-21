@@ -16,6 +16,7 @@ $(document).ready(function() {
 	$(".linea").keydown(soloNumero);
 	$(".linea").keyup(focusing);
 	$("#next2").click(validarLineas);
+	$(".resend").click(resendCode);
 	$("#nombre").focus();
 	$("#nombre").keydown(validarNombreAp);
 	$("#apellido").keydown(validarNombreAp);
@@ -23,7 +24,6 @@ $(document).ready(function() {
 	$("#apareceCell").text(guardoCell);
 	$("#next3").click(validarDatos);
 	$("#join").text(fecha);
-	$(".resend").click(resendCode);
 	$(".user").click(aparecePerfil);
 	$(".sideList").click(desaparecePerfil);
 	if (navigator.geolocation) { 

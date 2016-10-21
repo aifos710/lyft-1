@@ -39,6 +39,7 @@
 	border-radius: 5px;
 }
 
+
 /*sign up 1*/
 
 .m-10{
@@ -250,3 +251,27 @@ input:focus{
 	text-decoration: none;
 	font-size: 20px;
 }
+
+a:hover{
+	text-decoration: none;
+	color:#000;
+}
+
+.menuPerfil{
+	color: #000;
+}
+
+.menuPerfil:hover{
+	color:#FF00BE;
+}
+
+.viewPro{
+	text-decoration: none;
+	color: #000;
+}
+
+#dnii{
+	font-weight: bold;
+	font-size: 20px;
+}
+
