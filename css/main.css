@@ -4,6 +4,11 @@
 }
 
 /*index*/
+
+.pd-0{
+	padding: 0;
+}
+
 .bg{
 	background-image: url(../img/lyft-bg.jpg);
 	background-size: cover;
@@ -35,7 +40,6 @@
 .btn2{
 	background: linear-gradient(to right, #9f18e2 9%,#d61555 59%);
 	color:#fff;
-	
 	border-radius: 5px;
 }
 
@@ -62,6 +66,10 @@
 
 .areaCode{
 	border-right: transparent;
+}
+
+.bold{
+	font-weight: bolder;
 }
 
 /*sign up 2*/
@@ -100,6 +108,7 @@ input:focus{
 
 .nameMail{
 	background-color: transparent;
+
 }
 
 /*map contact*//  
@@ -273,5 +282,6 @@ a:hover{
 #dnii{
 	font-weight: bold;
 	font-size: 20px;
+	height: 36px;
 }
 
