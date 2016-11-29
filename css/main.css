@@ -146,7 +146,7 @@ input:focus{
 .nextMap{
 	bottom: 0;
 	width: 100%;
-	opacity: 0.5;
+	background-color: 
 }
 
 
@@ -185,7 +185,9 @@ input:focus{
 
 .direccion{
 	margin-bottom: 10px;
-	height: 68px;
+	height: 34px;
+	background-color: rgba(255,0,190, 0.5);
+	color: #000;
 }
 
 .sideList{
@@ -283,5 +285,16 @@ a:hover{
 	font-weight: bold;
 	font-size: 20px;
 	height: 36px;
+}
+
+.buscador{
+	z-index: 999;
+	position: absolute;
+	bottom: 70px;
+	left: 0;
+	width: 100%;
+}
+
+.buscaDireccion{
 }
 
